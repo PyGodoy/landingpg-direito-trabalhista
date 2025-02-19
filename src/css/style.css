@@ -74,10 +74,11 @@ body {
 .animation-container {
     width: 80px;
     height: 80px;
-    margin: 0 auto 1rem auto; /* Alterado: adicionado auto nas margens laterais */
+    margin: 0 auto 1rem auto;
     display: flex;
     align-items: center;
-    justify-content: center; /* Alterado: de flex-start para center */
+    justify-content: center;
+    flex-shrink: 0; /* Impede que o container da animação encolha */
 }
 
 lord-icon {
@@ -99,6 +100,10 @@ lord-icon {
     cursor: pointer;
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 200px; /* Altura fixa para desktop */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .service-card:hover {
@@ -127,8 +132,15 @@ lord-icon {
     }
 }
 
+/* Ajuste para texto do título */
 .service-card h3 {
-    text-align: center; /* Added: ensure heading is left-aligned */
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-button {
@@ -344,18 +356,16 @@ footer a:hover {
     }
 
     .service-card {
+        height: 180px; /* Altura fixa menor para mobile */
+        padding: 1rem;
         background: rgba(30, 30, 30, 0.9);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         margin-bottom: 1rem;
-        padding: 1.5rem;
-        opacity: 1;
-        transform: none;
     }
 
     .service-card h3 {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
     }
 
     /* Ensure the grid layout works on mobile */
